@@ -52,7 +52,7 @@ y_list = [float(i) for i in y_list]
 z_list = [float(i) for i in z_list]
 t_list = [float(i) for i in t_list]
 
-print(f"Twoje x: {x_list}\nTwoje y: {y_list}\nTwoje z: {z_list}")
+# print(f"Twoje x: {x_list}\nTwoje y: {y_list}\nTwoje z: {z_list}")
 
 m_list = []     # listy pomocnicze
 xx_list = []    # listy pomocnicze
@@ -76,12 +76,15 @@ def ilorazRoz(x1,x2,y1,y2):
         iloraz = (y2-y1)/(x2-x1)
     return iloraz
 
+
+
+# TODO sprawdzic blad w rekurencji
 def piramida(iteration, arguments, results):
     if iteration > m:
         return results
     newArguments = []
     i = 0
-    print(f"m = {m}")
+    # print(f"m = {m}")
     while i < m - iteration -1:
         # print(f"Iteration: {iteration}, i + iteration + 1 = {i + iteration + 1}")
         newArguments.append(ilorazRoz(xx_list[i], \
@@ -95,7 +98,7 @@ def piramida(iteration, arguments, results):
 
 b_list = piramida(0, m_list, [])
 
-print(b_list)
+# print(b_list)
 
 
 # pierwsza wartosc b_list jest pominieta, poniewaz obliczylismy ją inaczej niz w piramidzie 
