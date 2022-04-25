@@ -59,7 +59,7 @@ xx_list = []    # listy pomocnicze
 
 for i in range (n_amount):
     m_list.append(y_list[i])
-    m_list.append(z_list[i])
+    m_list.append(y_list[i]) # z_list => y_list test
 
 for x in x_list:
     xx_list.append(x) #xx_list to lista pomocnicza
@@ -78,13 +78,11 @@ def ilorazRoz(x1,x2,y1,y2):
 
 
 
-# TODO sprawdzic blad w rekurencji
 def piramida(iteration, arguments, results):
     if iteration > m:
         return results
     newArguments = []
     i = 0
-    # print(f"m = {m}")
     while i < m - iteration -1:
         # print(f"Iteration: {iteration}, i + iteration + 1 = {i + iteration + 1}")
         newArguments.append(ilorazRoz(xx_list[i], \
@@ -96,23 +94,23 @@ def piramida(iteration, arguments, results):
         i += 1
     return piramida(iteration + 1, newArguments, results)
 
-b_list = piramida(0, m_list, [])
+b_list = [m_list[0]]
+temp_list = piramida(0, m_list, [])
+for i in temp_list:
+    b_list.append(i)
 
-# print(b_list)
 
 
-# pierwsza wartosc b_list jest pominieta, poniewaz obliczylismy ją inaczej niz w piramidzie 
-# TODO kod który ją dodaje
 def wielomian(t):
     i = 0
     o = 0
     result = 0
     temp = 0
-    while i < m - 1:
+    while i < m:
         o = 0
         temp = float(b_list[i])
         while o < i:
-            temp *= (t - m_list[o])
+            temp *= (t - xx_list[o])
             o += 1
         result += temp
         i += 1
